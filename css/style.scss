@@ -1,0 +1,263 @@
+// visible
+$cGray: rgb(137, 137, 137);
+$cYellow: rgb(253, 248, 235);
+$cRed: rgb(228, 0, 101);
+$cWhite: #fff;
+$cBlack: #000;
+// mixin
+@mixin pt100 {
+  padding-top: 100px;
+}
+@mixin pb6 {
+  padding-bottom: 60px;
+}
+@mixin pt200 {
+  padding-top: 200px;
+}
+
+@mixin pb100 {
+  padding-bottom: 100px;
+}
+@mixin pb7 {
+  padding: 70px;
+}
+@mixin mb6 {
+  margin-bottom: 60px;
+}
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+}
+@mixin auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+@mixin inner {
+  width: (1170/1600) * 100%;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+ul {
+  margin: 0;
+}
+li {
+  list-style: none;
+  // text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+/*BLOCK
+-----------------------*/
+
+// header
+.header {
+  padding: 70px 0 100px;
+
+  @include flex();
+  @include auto();
+  &__inner {
+    @include inner();
+  }
+  &__nav ul {
+    @include flex();
+
+    & li {
+      font-size: 14px;
+      margin-right: 30px;
+      &:nth-child(4) {
+        margin: 0;
+      }
+    }
+  }
+  &__hero {
+    background-image: url('./images/pic_visual.png');
+  }
+}
+
+// footer
+
+.footer {
+  text-align: center;
+  @include pt100();
+  @include pb6();
+  &__inner {
+    @include inner();
+  }
+  &__copy {
+    text-align: right;
+    font-size: 12px;
+  }
+}
+
+// BLOCK
+
+// works
+.works {
+  @include pt100();
+  @include pb7();
+  &__inner {
+    @include inner();
+    @include auto();
+  }
+
+  &__catch {
+    font-size: 12px;
+    color: $cGray;
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-size: 38px;
+    margin-bottom: 60px;
+  }
+  &__text {
+    font-size: 14px;
+    margin-top: 40px;
+    // @include mb6();
+  }
+  &__lists {
+    width: 100%;
+    @include flex();
+  }
+  &__item {
+    width: (370/1170 * 100);
+    // width: 46%;
+  }
+}
+
+.project {
+  background-color: $cYellow;
+  @include pt100();
+  @include pb100();
+  &__inner {
+    @include inner();
+    @include auto();
+  }
+
+  &__catch {
+    font-size: 12px;
+    color: $cGray;
+    margin-bottom: 20px;
+  }
+  &__title {
+    font-size: 38px;
+    margin-bottom: 60px;
+  }
+  &__text {
+    font-size: 14px;
+    margin-top: 40px;
+    @include mb6();
+  }
+  &__lists {
+    width: 100%;
+    @include flex();
+  }
+  &__item {
+    width: (370/1170 * 100);
+    // width: 46%;
+  }
+}
+
+.news {
+  text-align: center;
+  @include pt100();
+  @include pb100();
+  background-color: $cBlack;
+  &__catch {
+    font-size: 32px;
+    color: $cWhite;
+  }
+}
+
+.company {
+  @include pt100();
+  @include pb100();
+  &__inner {
+    @include inner();
+    @include auto();
+  }
+
+  &__catch {
+    font-size: 12px;
+    color: $cGray;
+  }
+  &__title {
+    font-size: 38px;
+  }
+  &__text {
+    font-size: 14px;
+  }
+  &__lists {
+    width: 100%;
+    @include flex();
+  }
+  &__item {
+    width: (560/1170 * 100);
+    // width: 46%;
+  }
+  &__flex {
+    @include flex();
+    vertical-align: center;
+    margin-bottom: 60px;
+  }
+  &__max {
+    max-width: 70%;
+  }
+  &__colums {
+    width: 100%;
+    @include column();
+  }
+  &__colum {
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i}) {
+        position: relative;
+        margin-bottom: 60px;
+      }
+    }
+  }
+  &__abs {
+    position: absolute;
+    top: 150px;
+    left: 80px;
+  }
+}
+
+// modifier
+.card {
+  &__img {
+    margin-bottom: 30px;
+  }
+  &__catch {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  &__text {
+    color: $cGray;
+    font-size: 12px;
+  }
+  &__batch {
+    margin-bottom: 30px;
+  }
+}
+.batch {
+  width: 184px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 13px;
+  background-color: $cRed;
+  text-align: center;
+  padding: 5px 0;
+  color: $cWhite;
+}
